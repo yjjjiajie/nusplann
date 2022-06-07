@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+</head>
+<body>    
+    <div class="row">
+      <!-- MODULE INFORMATION SECTION -->
+      <input id ='searchIn' type="text" v-model="search" v-on:keyup = 'show = true' placeholder="Search Module Code or Title..."/>
+
+      <!-- Display all modules at first tab -->
+      <div v-if = "show == true"> 
+        <ul id = 'modules'>
+          <li v-for="mod_index in filteredList">
+            <!-- Searching for particular module-->
+            <p id = "title"  v-on:click = 'modInfo(allmodules[mod_index]); dashboardInfo(allmodules[mod_index]["code"])'>{{allmodules[mod_index].code}} {{allmodules[mod_index].title}} </p> 
+            <p id = 'info'>{{allmodules[mod_index].department}} | {{allmodules[mod_index].mc}} MCs </p>
+            <p v-show = 'allmodules[mod_index].desc.length > 350' id = 'des'>{{allmodules[mod_index].desc.substring(0,350)}}...</p>
+            <p v-show = 'allmodules[mod_index].desc.length <= 350' id = 'des'>{{allmodules[mod_index].desc}}</p>
+            <p v-show = "allmodules[mod_index].prereq != ''" id = 'prer'>Prerequisites: {{allmodules[mod_index].prereq}}</p>
+            <p v-show = "allmodules[mod_index].preclusion != ''" id = 'prec'>Preclusions: {{allmodules[mod_index].preclusion}}</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- If module is searched for, display results-->
+      <div id = 'res'></div>
+    </div>
+  </body>
+</html>
