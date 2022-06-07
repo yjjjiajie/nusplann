@@ -289,35 +289,7 @@ export default {
 				myTree.refresh(data_1);
 			}
 			res.insertAdjacentHTML('beforeend', '<br>');
-			//Reviews section
-			//console.log('Reviews');
-			this.fetchReviews();
-		},
-		dashboardInfo: function(module_code) {
-			this.show_dashboard = false;
-			
-			// update academic year
-			this.updateAcademicYear();
-			// fetch data from firebase
-			this.fetchDashboard(module_code).then(doc => {
-				if (doc !== this.data_unavailable) {
-					// assign preprocessed data after fetching
-					this.preprocessed_data = doc;
-					this.show_dashboard = true;
-				}
-            });
-		},
-		updateAcademicYear: function() {
-			var today = new Date();
-			var month = today.getMonth() + 1; // +1 since month starts in June
-			var year = today.getFullYear() - 2000; // get year number, e.g. 19 for 2019
-			var academic_year; 
-			if (month < 6) {
-				academic_year = String(year-1) + String(year) + "-S2";
-			} else {
-				academic_year = String(year - 1) + String(year) + "-S1"
-			}
-			this.current_ay = academic_year;
+
 		}
 	}
 }
