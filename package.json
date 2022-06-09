@@ -6,6 +6,7 @@
     "node": "16.15.0"
   },
   "scripts": {
+    "start": "vue-cli-service-start",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
@@ -16,7 +17,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "core-js": "^3.8.3",
-    "heroku": "^7.60.2",
+    "heroku": "^7.33.3",
     "treeviz": "^2.3.0",
     "vue": "^3.2.13",
     "vue-owl-carousel": "^2.0.3",
