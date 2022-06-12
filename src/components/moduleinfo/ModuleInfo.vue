@@ -4,7 +4,6 @@
 <script>
 import modules from "../../assets/allmoduleinfo.json";
 import * as Treeviz from 'treeviz';
-import { mapGetters } from "vuex";
 export default {
 	name: "App",
 	display: "Module Information",
@@ -17,100 +16,17 @@ export default {
 			mods: Object.values(modules),
 			show: true,
 			years:[],
-			/* data required for edit button*/
-      form: {
-          year: "",
-          rating: "",
-          learning: "",
-          admin: "",
-          writtenReview: "",
-					userName:"",
-					module_code:""
-			},
-			/* data required for dashboard */
-			preprocessed_data: {
-                '1819-S1': {
-                    total: 204,
-                    major: {
-                        'Business Analytics': 101,
-                        'Computer Science': 103,
-                    },
-                    year: [0, 198, 5, 1]
-                },
-                '1819-S2': {
-                    total: 201,
-                    major: {
-                        'Business Analytics': 98,
-                        'Computer Science': 87,
-                        'Information Systems': 16
-                    },
-                    year: [2, 197, 3, 0]
-                },
-                '1920-S1': {
-                    total: 197,
-                    major: {
-                        'Business Analytics': 99,
-                        'Computer Science': 88,
-                        'Information Systems': 10
-                    },
-                    year: [0, 195, 3, 0]
-                },
-                '1920-S2': {
-                    total: 204,
-                    major: {
-                        'Business Analytics': 91,
-                        'Computer Science': 87,
-                        'Information Systems': 21,
-                        'Information Security': 5
-                    },
-                    year: [0, 198, 5, 1]
-                },
-                '2021-S1': {
-                    total: 180,
-                    major: {
-                        'Business Analytics': 93,
-                        'Computer Science': 82,
-                        'Information Systems': 5
-                    },
-                    year: [1, 177, 2, 0]
-                },
-                '2021-S2': {
-                    total: 151,
-                    major: {
-                        'Business Analytics': 68,
-                        'Computer Science': 77,
-                        'Information Systems': 6
-                    },
-                    year: [0, 150, 1, 0]
-                },
-			},
-			current_ay: "1920-S1",
-			show_dashboard: false,
-			data_unavailable: -1,
-			quality: 5,
-			relevance: 5,
-			difficulty: 5,
-			workload: 5,
-			staff: 5,
-			update: 0,
 		}
 	},
+
 	props: ['allmodules'],
 	computed: {
 		filteredList() {
-			if(this.search != ''){
-				document.getElementById("res").innerHTML ="";
-				document.getElementById("res_review").innerHTML = "";
-			}
-			
 			return Object.keys(this.allmodules).filter(mod => {
-				return this.allmodules[mod].fullname.toUpperCase().includes(this.search.toUpperCase())
+				var query = this.search.toLowerCase();
+				return this.allmodules[mod].fullname.toLowerCase().includes(query)
             })
 		},
-		// map `this.user` to `this.$store.getters.user`
-        ...mapGetters({
-            user: "user"
-        }),
 	},
 	
 	methods:{
@@ -211,7 +127,7 @@ export default {
 				var totalHours = workload.map(function(elt) {return parseInt(elt)}).reduce(function(a,b) {return a+b});
 				var totalString = totalHours + totalHours > 1 ? ' hours' : ' hour';
 				res.insertAdjacentHTML('beforeend', '<h4>Workload (Weekly): '+ totalHours + totalString +'</h4><hr></hr>');
-				var col = ["#24305E","#F67280","#8186D5","#96D1C7","#B9CCED"];
+				var col = ["#2C3531","#116466","#D9B08C","#FFCB9A","#D1E8E2"];
 				var names = ["Lec","Tut", "Lab","Proj","Prep"];
 				for (i = 0; i < 5; i++) {
 					for (var j = 0; j < workload[i]; j++){	
@@ -243,11 +159,11 @@ export default {
 			}
 			if(lst.length > 0){
 				var data_1 = [
-					{id: 1, text_1: mod.code, father: null, color:"#F67280" },
+					{id: 1, text_1: mod.code, father: null, color:"#116466" },
 				]
 				var count = 2;
 				for(var i in lst){
-					data_1.push({id: count, text_1: this.allmodules[lst[i]].code, father: 1, color:"#B9CCED"});
+					data_1.push({id: count, text_1: this.allmodules[lst[i]].code, father: 1, color:"#D1E8E2"});
 					count++;
 				}
 				res.insertAdjacentHTML('beforeend','<h4>Dependent Modules</h4><hr></hr>');
@@ -260,8 +176,6 @@ export default {
 				var myTree = Treeviz.create({
 					htmlId: "tree",
 					idKey: "id",
-					hasPan: false,
-					hasZoom:false,
 					hasFlatData: true,
 					relationnalField: "father",
 					nodeWidth:100,
@@ -283,12 +197,11 @@ export default {
 					linkShape:"curve",
 					onNodeClick : (nodeData) => {
 						x.modInfo(this.allmodules[nodeData.data.text_1]);
-						x.dashboardInfo(this.allmodules[nodeData.data.text_1]["code"]);
 					}
 				});
 				myTree.refresh(data_1);
 			}
-			res.insertAdjacentHTML('beforeend', '<br>');
+			res.insertAdjacentHTML('beforeend', '<hr></hr>');
 
 		}
 	}

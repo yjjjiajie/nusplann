@@ -7,7 +7,7 @@
 <body>    
     <div class="row">
       <!-- MODULE INFORMATION SECTION -->
-      <input id ='searchIn' type="text" v-model="search" v-on:keyup = 'show = true' placeholder="Search Module Code or Title..."/>
+      <input id ='searchIn' type="text" v-model="search" v-on:keyup = 'show = true' placeholder="Search Module ..."/>
 
       <!-- Display all modules at first tab -->
       <div v-if = "show == true"> 
@@ -16,8 +16,12 @@
             <!-- Searching for particular module-->
             <p id = "title"  @click = 'modInfo(allmodules[mod_index]); dashboardInfo(allmodules[mod_index]["code"])'>{{allmodules[mod_index].code}} {{allmodules[mod_index].title}} </p> 
             <p id = 'info'>{{allmodules[mod_index].department}} | {{allmodules[mod_index].mc}} MCs </p>
-            <p v-show = 'allmodules[mod_index].desc.length > 350' id = 'des'>{{allmodules[mod_index].desc.substring(0,350)}}...</p>
-            <p v-show = 'allmodules[mod_index].desc.length <= 350' id = 'des'>{{allmodules[mod_index].desc}}</p>
+
+            <!-- Displaying module information to a certain length -->
+            <p v-show = 'allmodules[mod_index].desc.length > 400' id = 'des'>{{allmodules[mod_index].desc.substring(0,400)}}...</p>
+            <p v-show = 'allmodules[mod_index].desc.length <= 400' id = 'des'>{{allmodules[mod_index].desc}}</p>
+
+            <!-- Displaying prerequisites and preclusions if there are -->
             <p v-show = "allmodules[mod_index].prereq != ''" id = 'prer'>Prerequisites: {{allmodules[mod_index].prereq}}</p>
             <p v-show = "allmodules[mod_index].preclusion != ''" id = 'prec'>Preclusions: {{allmodules[mod_index].preclusion}}</p>
           </li>
