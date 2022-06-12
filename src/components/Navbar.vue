@@ -10,6 +10,7 @@
                 <span class="header-tab"><router-link to="/acadplan"><a>Academic Planner</a></router-link></span>
                 <span class="header-tab"><router-link to="/seniorplans"><a>Senior's Plans</a></router-link></span>            
                 <span class="header-tab"><router-link to="/moduleinfo"><a>Module Information</a></router-link></span>
+                <span class="header-tab"><router-link to="/login"><a>Login/Register</a></router-link></span>
             </div>
         </nav>
     </div>
