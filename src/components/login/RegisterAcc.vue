@@ -3,8 +3,8 @@
         <h1 class="create">Create an account</h1>
         <p><input type = "text" placeholder="Email" v-model="email"></p>
         <p><input type = "text" placeholder = "Password" v-model="password"></p>
-        <p><button class = btn1 @click = "register">Submit</button></p>
-        <p><button class = btn2 @click = "signInWithGoogle">Sign in with Google</button></p>
+        <p v-if="errMsg">{{ errMsg }}</p>
+        <p><button class = btn1 @click = "register">Register</button></p>
         <div class="small-login">
             <router-link to="/login"><a>Already have an account? Login here.</a></router-link>
         </div>
@@ -13,12 +13,13 @@
 
 <script setup>
 import { ref } from "vue"
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 import { useRouter } from "vue-router"
 
 const email = ref("")
 const password = ref("")
 const router= useRouter()
+const errMsg = ref()
 
 const register = () => {
     const auth = getAuth()
@@ -30,13 +31,34 @@ const register = () => {
         })
         .catch((error) => {
             console.log(error.code);
-            alert(error.message);
+            switch(error.code) {
+                case "auth/user-not-found":
+                    errMsg.value = "User not found";
+                    break;
+                case "auth/wrong-password":
+                    errMsg.value = "Wrong password";
+                    break;
+                case "auth/invalid-email":
+                    errMsg.value = "Invalid email";
+                    break;
+                default:
+                    errMsg.value = "Email or Password was incorrect";
+                    break;
+            }
         });
 };
 
-const signInWithGoogle = () => {
+// const signInWithGoogle = () => {
+//     const provider = new GoogleAuthProvider();
+//     signInWithPopup(getAuth(), provider)
+//         .then((result) => {
+//             console.log(result.user);
+//             router.push('/moduleinfo')
+//         })
+//         .catch((error) => {
 
-};
+//         });
+// };
 </script>
 
 <style>
@@ -58,5 +80,16 @@ const signInWithGoogle = () => {
     color: #345c97;
     font-weight: bold;
 }
+
+.btn1 {
+    background-color: #345c97;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
 
 </style>

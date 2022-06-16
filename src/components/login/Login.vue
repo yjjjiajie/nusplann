@@ -2,10 +2,9 @@
     <div class="login-form">
         <h1 class="login">Login</h1>
         <p><input type="text" placeholder="Email" v-model="email"></p>
-        <p><input type="text" placeholder="Password" v-model="password"></p>
+        <p><input type="password" placeholder="Password" v-model="password"></p>
         <p v-if="errMsg">{{ errMsg }}</p>
         <p><button class="signIn" @click="signIn">Sign in</button></p>
-        <p><button class="signInWithGoogle" @click="signInWithGoogle">Sign in with Google</button></p>
         <div class="small-register">
             <router-link to="/register"><a>Don't have an account? Register here.</a></router-link>
         </div>
@@ -49,7 +48,6 @@ const signIn = () => {
         });
 };
 
-const signInWithGoogle = () => {}
 </script>
 
 
@@ -71,6 +69,15 @@ const signInWithGoogle = () => {}
 .login {
     color: #345c97;
     font-weight: bold;
+}
+
+.signIn {
+    background: #345c97;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 </style>
