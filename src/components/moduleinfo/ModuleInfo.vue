@@ -10,6 +10,7 @@ export default {
 	components: {
 		Treeviz
 	},
+
 	data: function() {
 		return {
 			search:'',
@@ -203,7 +204,9 @@ export default {
 			}
 			res.insertAdjacentHTML('beforeend', '<hr></hr>');
 
-		}
+		},
+
+		
 	}
 }
 </script>

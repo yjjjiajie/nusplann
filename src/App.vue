@@ -12,6 +12,8 @@
 <script>
 import Navbar from './components/Navbar.vue';
 import allModules from './assets/allmoduleinfo.json';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from '@/firebase'
 
 
 export default {
@@ -19,6 +21,7 @@ export default {
   components: {
     appNavbar: Navbar,
   },
+
   data() {
     return {
       allmodules: allModules

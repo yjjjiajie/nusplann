@@ -11,7 +11,7 @@
             
             <div class="header-tabs">
                 <span class="header-tab"><router-link to="/acadplan"><a>Academic Planner</a></router-link></span>
-                <span class="header-tab"><router-link to="/seniorplans"><a>Senior's Plans</a></router-link></span>            
+                <span class="header-tab"><router-link to="/todo"><a>Pending To-Dos</a></router-link></span>            
                 <span class="header-tab"><router-link to="/moduleinfo"><a>Module Information</a></router-link></span>
                 <span class="header-tab"><router-link to="/login" v-if="!isLoggedIn"><a>Login/Register</a></router-link></span>
                 <button class="signOutButton" @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
@@ -19,7 +19,6 @@
         </nav>
     </div>
 </template>
-
 
 <script setup>
 

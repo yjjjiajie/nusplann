@@ -31,7 +31,32 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../components/login/RegisterAcc.vue'),
-  }
+  },
+  {
+    path: '/acadplan',
+    name: 'acadplan',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../components/acadplan/AcadPlan.vue'),
+    meta: {
+      requiresAuth: true,
+
+    },
+  },
+
+  {
+    path: '/todo',
+    name: 'todo',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../components/todo/toDo.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+
 ]
 
 const router = createRouter({
@@ -65,4 +90,5 @@ router.beforeEach(async(to, from, next) => {
     next();
   }
 });
+
 export default router
