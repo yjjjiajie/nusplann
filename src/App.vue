@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <appNavbar></appNavbar>
+    <appNavbar>
+    </appNavbar>
+
     <div class="col-md-12">
         <!-- link allmajors data to components -->
         <router-view :allmodules="allmodules"></router-view>

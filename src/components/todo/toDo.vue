@@ -2,13 +2,17 @@
 
 	<form class = "container" @submit.prevent="addTodo()">
 		<label> </label>
-		<input
-			v-model="newTodo"
-			name="newTodo"
-			autocomplete="off"
-      placeholder="Add to do ..."
-		>
+		<div class = "adding">
+			<input
+				v-model="newTodo"
+				name="newTodo"
+				autocomplete="off"
+		placeholder="Add to do ..."
+			>
+		</div>
+		
 		<button>Add</button>
+		
 	</form>
 	<h2>Pending Work</h2>
 	<ul>
@@ -106,8 +110,6 @@ body {
 			display: flex;
 			flex-direction: column;
 			width: 100%;
-      
-      
 
 			label {
 				font-size: 14px;
@@ -173,8 +175,19 @@ body {
 			margin: 0;
 		}
 	}
-  .container {
-    text-align: center
+
+  .adding {
+	background-position: 100px 12px; /* Position the search icon */
+	background-repeat: no-repeat; 
+	width: 100%; 
+	border: 1px solid #9CB2BC; /* Add a grey border */
+	border-radius: 5px;
+	background-color:white ;
+  }
+
+  .btn {
+	width:100%;
+
   }
 }
 </style>

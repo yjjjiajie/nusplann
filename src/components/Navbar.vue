@@ -16,6 +16,7 @@
                 <span class="header-tab"><router-link to="/login" v-if="!isLoggedIn"><a>Login/Register</a></router-link></span>
                 <button class="signOutButton" @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
             </div>
+            <h4 class = 'welcome' v-if="!isLoggedIn">Welcome to nusPlan! PLease Login/Register to start the journey with us.</h4>
         </nav>
     </div>
 </template>
@@ -46,7 +47,6 @@ const handleSignOut = () => {
     router.push("/");
   });
 };
-
 
 </script>
 
@@ -99,5 +99,12 @@ a:hover, .header-tab-dropdown:hover .dropdown-button {
     padding: 10px;
     font-size: 15px;
     cursor: pointer;
+}
+
+.welcome {
+     color: grey;
+     font-weight: 200;
+     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     text-align: left;
 }
 </style>
