@@ -30,7 +30,15 @@
 
       <!-- If module is searched for, display results-->
       <div id = 'res'></div>
-      <review ref = "overlayReview" :key="update" :q = "quality" :s = "staff" :r="relevance" :d = "difficulty" :w = "workload"></review>
+
+      <!-- Displaying reviews if there is any -->
+      <div class = "reviewsSectoin">
+       <div class = "side1"><h4> Detailed Reviews</h4></div>
+       <div class = "side1"><button class = "btn-addreview" id = "userReview" @click = "()=>togglePopups()">Click to Review</button></div>
+      </div>
+      <Review v-if="popUpTriggers" :togglePopUp = "()=>close()"></Review>
+      
+
     </div>
   </body>
 </html>

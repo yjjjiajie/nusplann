@@ -3,31 +3,12 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-// import { collection, getDocs } from "firebase/firestore";
-// import { db } from '@/firebase'
+// import BootstrapVue3 from "bootstrap-vue-3";
 
-// import { initializeApp } from "firebase/app";
-// import { getFirestore } from "firebase/firestore";
+// import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap-vue-3/dist/bootstrap-vue-3.css";
+
+
 
 createApp(App).use(router).mount('#app')
-// import { createApp } from 'vue'
-// import firebase from 'firebase/app'
-// import {firebaseConfig} from './firebase-config.js'
-// import 'firebase/firestore'
-// import App from './App.vue'
-// import router from './router'
 
-
-// // Import the functions you need from the SDKs you need
-
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
-
-// // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
-// export const db = firebase.firestore();
-// console.log(db)
-
-// initializeApp(firebaseConfig);
-// createApp(App).use(router).mount('#app')

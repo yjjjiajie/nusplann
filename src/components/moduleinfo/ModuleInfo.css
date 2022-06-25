@@ -112,49 +112,11 @@ span[id*="temp"]:hover:not(.header) {
   font-weight: bold;
 }
 
-/* overall stars */
-#StarsOuter {
-  display: inline-block;
-  position: relative;
-  font-family: FontAwesome;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
 
-#StarsOuter::before {
-  content: "\f006 \f006 \f006 \f006 \f006";
-  text-align: center;
-  margin-bottom: 20px;
-}
 
-#StarsInner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-#StarsInner::before {
-  content: "\f005 \f005 \f005 \f005 \f005";
-  color:#24305E;
-  margin-bottom: 20px;
-}
 
 /* add review modal */
-.modal-container {
-  width: 60%;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
-}
+
 
 #closeReview {
   text-align: center;
@@ -320,4 +282,14 @@ tr {
 
 #reviewTd {
   width: 100px;
+}
+
+.side1 {
+  display: inline-block;
+  width: 50%;
+}
+
+.btn-addreview {
+  cursor: pointer;
+  background-color: #24305E;
 }

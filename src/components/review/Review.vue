@@ -1,6 +1,4 @@
-<style>
-    @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
-</style>
+
 <template>
     <div id="overlay">
         <div class="modal-container">
@@ -8,7 +6,7 @@
             <slot name="header">
               <h1 id = 'reviewTitle'>Add Review</h1>
               <button type="button" id='closeReview'>
-                <font-awesome-icon />
+                <font-awesome-icon icon="times"></font-awesome-icon>
               </button>
             </slot>
           </div>
@@ -61,6 +59,9 @@
                 Submit Review
               </button>
             </slot>
+            <slot>
+                <button type="button" class= "closeReviewBtn" @click="togglePopUp()">Close</button>
+            </slot> 
           </div>
         </div>
       </div>
@@ -70,7 +71,12 @@
 
 </template>
 <script>
+import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+
+
+library.add(faUserSecret)
 export default {
     data() {
       return {
@@ -81,13 +87,7 @@ export default {
         workload:5,
       }
     },
-    props : {
-      q: Number,
-      s: Number,
-      r: Number,
-      d: Number,
-      w: Number,
-    },
+    props : ['togglePopUp'],
     watch: {
       q: function(val) {
         this.quality = val;
@@ -161,3 +161,31 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+
+
+  .modal-container {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height:100%;
+    background-color:white;
+    justify-content: middle;
+  }
+
+  .closeReviewBtn {
+    position: absolute;
+    top: 5%;
+    right: 5px;
+    background-color: grey;
+    color: black;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  #submitReview {
+    cursor: pointer;
+  }
+</style>
