@@ -40,6 +40,7 @@ export default {
     props : ['togglePopUp'],
     methods: {
         submitR: async function() {
+          alert('Review Submitted');
         
           var review = document.getElementById('writtenReview').value;
           var module_code = document.getElementById('mod_title').innerHTML.split(' ')[0];

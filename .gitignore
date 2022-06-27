@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 # src/firebase/index.js
 src/firebase/index.js
+
+src/components/acadplan
