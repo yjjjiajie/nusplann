@@ -32,10 +32,7 @@
       <div id = 'res'></div>
 
       <!-- Displaying reviews if there is any -->
-      <div class = "reviewsSectoin">
-       <div class = "side1"><h4> Detailed Reviews</h4></div>
-       <div class = "side1"><button class = "btn-addreview" id = "userReview" @click = "()=>togglePopups()">Click to Review</button></div>
-      </div>
+      <button class = "btn-addreview"  @click = "()=>togglePopups()">Click to Review</button>
       <Review v-if="popUpTriggers" :togglePopUp = "()=>close()"></Review>
       
 

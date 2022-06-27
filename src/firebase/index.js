@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection} from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDYyvdSLgZetR1sqohLJCoJwEViaQJy9Hc",
@@ -13,7 +13,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app);
+const reviewRef = collection(db, "messages");
 
 export {
-    db
+    db,
+    reviewRef
 }

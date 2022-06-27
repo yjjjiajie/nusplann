@@ -114,10 +114,6 @@ span[id*="temp"]:hover:not(.header) {
 
 
 
-
-/* add review modal */
-
-
 #closeReview {
   text-align: center;
   border: none;
@@ -284,12 +280,9 @@ tr {
   width: 100px;
 }
 
-.side1 {
-  display: inline-block;
-  width: 50%;
-}
+
 
 .btn-addreview {
   cursor: pointer;
-  background-color: #24305E;
+  float: right
 }
