@@ -4,14 +4,29 @@
 <script>
 import modules from "../../assets/allmoduleinfo.json";
 import * as Treeviz from 'treeviz';
+import {db } from '@/firebase'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { mapGetters } from "vuex";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import Review from '../review/Review.vue';
+import { collection, query, where, getDocs, doc, addDoc } from "firebase/firestore";
+import { ref } from 'vue'
+
+var moduleReview = {};
+
 export default {
+	
 	name: "App",
 	display: "Module Information",
 	components: {
-		Treeviz
+		FontAwesomeIcon,
+		Treeviz,
+		Review
 	},
+
 	data: function() {
 		return {
+			popUpTriggers: false,
 			search:'',
 			mods: Object.values(modules),
 			show: true,
@@ -27,9 +42,22 @@ export default {
 				return this.allmodules[mod].fullname.toLowerCase().includes(query)
             })
 		},
+		
 	},
+
 	
 	methods:{
+		reviewForm: function() {
+			<Review></Review>
+		},
+		togglePopups: function() {
+			this.popUpTriggers = !this.popUpTriggers;
+		},
+
+		close: function() {
+			this.popUpTriggers = false;
+		},
+
 		modInfo: function(mod){
 			this.search ='';
 			this.show = false;
@@ -144,7 +172,7 @@ export default {
 					}
 				}
 			}
-			res.insertAdjacentHTML('beforeend', '<br>');
+	
 			
 			
 			//TREE
@@ -201,9 +229,40 @@ export default {
 				});
 				myTree.refresh(data_1);
 			}
-			res.insertAdjacentHTML('beforeend', '<hr></hr>');
+			
+			this.loadReview();
+		},
+		updateAcademicYear: function() {
+			var today = new Date();
+			var month = today.getMonth() + 1; // +1 since month starts in June
+			var year = today.getFullYear() - 2000; // get year number, e.g. 19 for 2019
+			var academic_year; 
+			if (month < 6) {
+				academic_year = String(year-1) + String(year) + "-S2";
+			} else {
+				academic_year = String(year - 1) + String(year) + "-S1"
+			}
+			this.current_ay = academic_year;
+		},
+	
+		async loadReview() {
+			var res = document.getElementById("res");
+			res.insertAdjacentHTML('beforeend', '<h3>Reviews (Please refresh to see your reviews)</h3><hr></hr>');            //var user = firebase.auth().currentUser;
+			var module_code = document.getElementById('mod_title').innerHTML.split(' ')[0];
+			const q = query(collection(db, "reviews"), where("module_code", "==", module_code));
+			const querySnapshot = await getDocs(q);
+			querySnapshot.forEach((doc) => {
+				// doc.data() is never undefined for query doc snapshots
+				console.log(doc.id, " => ", doc.data());
+				res.insertAdjacentHTML('beforeend', doc.data().review);
+				res.insertAdjacentHTML('beforeend', '<br></br>');
+				
+			});
+			res.insertAdjacentHTML('beforeend', '<br></br>');
 
-		}
+
+        },
+		
 	}
 }
 </script>

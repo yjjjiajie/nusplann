@@ -1,114 +1,288 @@
 /* search bar */
 #searchIn {
-    background-position: 10px 12px; /* Position the search icon */
-    background-repeat: no-repeat; 
-    width: 90%; 
-    font-size: 16px; 
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #9CB2BC; /* Add a grey border */
-    margin-bottom: 20px; 
-    border-radius: 5px;
-  }
-  
-  /* list of modules in main search */
-  #modules {
-    /* Remove default list styling */
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  #modules li{
-    align-items: left;
-    text-align: left;
-    padding: 12px; /* Add some padding */
-    padding-right: 60px;
-    text-decoration: none; /* Remove default text underline */
-    font-size: 18px; /* Increase the font-size */
-    color: black; /* Add a black text color */
-    display: block; /* Make it into a block element to fill the whole list */
-    margin-top: 18px; 
-  }
-  
-  #tabody {
-    width: 80%;
-  }
-  
-  /* module information - module titles */
-  #title{
-    text-decoration: underline;
-    cursor: pointer;
-    line-height: 2pt;
-    font-weight: bold;
-    color: rgb(35, 97, 128);
-  }
-  
-  #title:hover:not(.header) {
-    color:#24305E;   
-  }
-  
-  /* module information */
-  #info{
-    font-size:15px;
-    color:rgb(59, 59, 59);
-  }
-  
-  /* module information - descriptions */
-  #des{
-    font-size: 15px;
-    text-align: justify;
-    margin-right: 8px;
-  }
-  
-  /* module information - preclusion */
-  #prec{
-    font-size: 15px
-  }
-  
-  /* module information - prerequisite */
-  #prer{
-    font-size: 15px
-  }
-  
-  /* search results */
-  #res {
-    position: top;
-    align-items: left;
-    text-align: left;
-    display: block;
-    width: 100%;
-  }
-  
-  #mod_title{
-    margin-top: 18px; 
-  }
-  
-  /* tree visualisation */
-  #tree {
-    font-size: 14px;
-    border: none;
-  }
-  
-  /* tree visualisation - link */
-  .link {
-    fill: none;
-    stroke: #778899;
-    stroke-width: 6px;
-  }
-  
-  /* module preclusions/prerequisites hyperlinks */
-  span[id*="temp"]{
-    text-decoration: underline;
-    cursor: pointer;
-    color: rgb(73, 118, 143);
-  }
-  
-  span[id*="temp"]:hover:not(.header) {
-    color: rgb(7, 46, 66);  
-  }
-  
-  /* module information - workload labels */
-  #labels{
-    font-weight: bold;
-  }
- 
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; 
+  width: 95%; 
+  font-size: 16px; 
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #9CB2BC; /* Add a grey border */
+  margin-bottom: 20px; 
+  border-radius: 5px;
+}
+
+/* list of modules in main search */
+#modules {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#modules li{
+  align-items: left;
+  text-align: left;
+  padding: 12px; /* Add some padding */
+  padding-right: 60px;
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+  margin-top: 18px; 
+}
+
+#tabody {
+  width: 80%;
+}
+
+/* module information - module titles */
+#title{
+  text-decoration: underline;
+  cursor: pointer;
+  line-height: 2pt;
+  font-weight: bold;
+  color: rgb(35, 97, 128);
+}
+
+#title:hover:not(.header) {
+  color:#24305E;   
+}
+
+/* module information */
+#info{
+  font-size:15px;
+  color:rgb(59, 59, 59);
+}
+
+/* module information - descriptions */
+#des{
+  font-size: 15px;
+  text-align: justify;
+  margin-right: 8px;
+}
+
+/* module information - preclusion */
+#prec{
+  font-size: 15px
+}
+
+/* module information - prerequisite */
+#prer{
+  font-size: 15px
+}
+
+/* search results */
+#res {
+  position: top;
+  align-items: left;
+  text-align: left;
+  display: block;
+  width: 100%;
+}
+
+#mod_title{
+  margin-top: 18px; 
+}
+
+/* tree visualisation */
+#tree {
+  font-size: 14px;
+  border: none;
+}
+
+/* tree visualisation - link */
+.link {
+  fill: none;
+  stroke: #778899;
+  stroke-width: 6px;
+}
+
+/* module preclusions/prerequisites hyperlinks */
+span[id*="temp"]{
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgb(73, 118, 143);
+}
+
+span[id*="temp"]:hover:not(.header) {
+  color: rgb(7, 46, 66);  
+}
+
+/* module information - workload labels */
+#labels{
+  font-weight: bold;
+}
+
+
+
+#closeReview {
+  text-align: center;
+  border: none;
+  font-size: 20px;
+}
+
+.modal-body {
+  text-align: left;
+}
+
+
+#rating {
+  padding-top: 5px;
+}
+
+/* buttons */
+.btn {
+  margin-top: 0px;
+  background-color: #24305E;
+  color: #fff;
+  border-color: #24305E;
+  border-radius: 5px;
+  height: auto;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.btn-addreview {
+  margin-left: 51.5%;
+  background-color: #24305E;
+  color: #fff;
+  border-color: #24305E;
+  border-radius: 5px;
+  height: auto;
+  width: 180px;
+  font-size: 18px;
+  vertical-align: middle;
+  align-self: flex-start;
+  padding: 10px;
+}
+
+.btn-review {
+  background-color: #24305E;
+  border-color: #24305E;
+  color: #fff;
+  width: 80px;
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  margin: 20px 10px 0px 0px;
+}
+
+/* review radar chart */
+#reviewChart {
+  display: block;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+  width: 60%;
+  margin-left: 20%;
+}
+
+/* overall review (before radar chart) */
+#OverallFeedbackNum {
+  font-size: 42px;
+  text-align: center;
+  width: 100%;
+}
+
+#reviewOverall {
+  width: 100%;
+  text-align: center;
+}
+
+#overall {
+  text-align: center;
+  font-size: 24px;
+}
+
+/* written reviews */
+#writtenReview {
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* overall review */
+#res_review {
+  width: 100%;
+}
+
+/* add reviews: select semester */
+.custom-select {
+  position: relative;
+  font-size: 14px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+#year {
+  margin-left: 21vw; /* sets width for year */
+}
+
+.one .spin {
+  width: 50%;
+  margin: 0;
+}
+
+.one {
+  font-size: 14px;
+}
+
+#review {
+  width: 90%;
+}
+
+/* text box for add module review */
+textarea {
+  display: block;
+  padding: 20px;
+  border-radius: 4px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* add review - submit button */
+#submitReview {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#submitReview:hover {
+  margin-top: 20px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+/* detailed reviews css */
+td {
+  vertical-align: top;
+}
+
+.rev-small {
+  width: 25%;
+}
+
+tr {
+  margin-bottom: 10px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+#indivReview {
+  font-weight: bold;
+}
+
+#reviewTd {
+  width: 100px;
+}
+
+
+
+.btn-addreview {
+  cursor: pointer;
+  float: right
+}

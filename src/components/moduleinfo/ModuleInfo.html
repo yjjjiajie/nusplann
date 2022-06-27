@@ -30,6 +30,12 @@
 
       <!-- If module is searched for, display results-->
       <div id = 'res'></div>
+
+      <!-- Displaying reviews if there is any -->
+      <button class = "btn-addreview"  @click = "()=>togglePopups()">Click to Review</button>
+      <Review v-if="popUpTriggers" :togglePopUp = "()=>close()"></Review>
+      
+
     </div>
   </body>
 </html>
