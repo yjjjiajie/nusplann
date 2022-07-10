@@ -166,7 +166,7 @@ export default {
                 // update modular credits
                 if (module.mod === "") {
                     module.mc = module.mc + mc * add_subtract;
-                    this.save_acadplan();
+                    this();
                     return;
                 }
             }
