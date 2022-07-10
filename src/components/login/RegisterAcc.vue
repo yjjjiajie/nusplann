@@ -2,7 +2,7 @@
     <div class="register-form">
         <h1 class="create">Create an account</h1>
         <p><input type = "text" placeholder="Email" v-model="email"></p>
-        <p><input type = "text" placeholder = "Password" v-model="password"></p>
+        <p><input type = "password" placeholder = "Password" v-model="password"></p>
         <p v-if="errMsg">{{ errMsg }}</p>
         <p><button class = btn1 @click = "register">Register</button></p>
         <div class="small-login">
@@ -32,17 +32,17 @@ const register = () => {
         .catch((error) => {
             console.log(error.code);
             switch(error.code) {
-                case "auth/user-not-found":
-                    errMsg.value = "User not found";
+                case "auth/email-already-in-use":
+                    errMsg.value = "Email already in use";
                     break;
-                case "auth/wrong-password":
-                    errMsg.value = "Wrong password";
+                case "auth/weak-password":
+                    errMsg.value = "Weak Password. Password must be at least 6 characters";
                     break;
                 case "auth/invalid-email":
                     errMsg.value = "Invalid email";
                     break;
                 default:
-                    errMsg.value = "Email or Password was incorrect";
+                    errMsg.value = "Please try again with another email and password";
                     break;
             }
         });
