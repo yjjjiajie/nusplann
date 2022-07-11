@@ -19,7 +19,7 @@
               </button>
             </slot>
             <slot>
-                <button type="button" class= "closeReviewBtn" @click="togglePopUp()">Close</button>
+                <button type="button" class= "closeReviewBtn" @click="togglePopUp();">Close</button>
             </slot> 
           </div>
         </div>
@@ -33,6 +33,7 @@
 import {ref, onMounted } from 'vue';
 import { db } from '@/firebase'
 import { collection, query, where, getDocs, doc, addDoc } from "firebase/firestore";
+
 
 
 export default {
@@ -58,6 +59,7 @@ export default {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
           });
+          
         },
     }
 }

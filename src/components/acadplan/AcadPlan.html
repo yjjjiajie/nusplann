@@ -39,13 +39,8 @@
             
             <b-modal id="error-modal" :title="modal_header" hide-footer>
                 <p>{{ this.modal_body }}</p>
-                <b-button id="modal-ok-btn" @click="$bvModal.hide('error-modal')">OK</b-button>
             </b-modal>
         </div>
-        <div class="row">
-            <div class="col-8 acad-plan-total">
-                Total: {{ this.total_mc }} MCs
-            </div>
-        </div>
+
     </body>
 </html>

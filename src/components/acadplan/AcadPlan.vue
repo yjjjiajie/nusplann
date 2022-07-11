@@ -10,6 +10,7 @@ import { faTimes, faAlignJustify } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 library.add(faTimes, faAlignJustify)
 import carousel from 'vue-owl-carousel';
+
 export default {
     name: "App",
     display: "Academic Planner",
@@ -166,7 +167,7 @@ export default {
                 // update modular credits
                 if (module.mod === "") {
                     module.mc = module.mc + mc * add_subtract;
-                    this();
+                    this.save_acadplan();
                     return;
                 }
             }
