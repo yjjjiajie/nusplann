@@ -10,6 +10,7 @@ import { faTimes, faAlignJustify } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 library.add(faTimes, faAlignJustify)
 import carousel from 'vue-owl-carousel';
+
 export default {
     name: "App",
     display: "Academic Planner",

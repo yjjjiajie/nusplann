@@ -13,9 +13,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app);
-const reviewRef = collection(db, "messages");
+
 
 export {
     db,
-    reviewRef
 }

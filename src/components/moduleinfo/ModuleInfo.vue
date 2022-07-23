@@ -230,7 +230,7 @@ export default {
 				myTree.refresh(data_1);
 			}
 			
-			this.loadReview();
+		this.loadReview();
 		},
 		updateAcademicYear: function() {
 			var today = new Date();
@@ -247,7 +247,7 @@ export default {
 	
 		async loadReview() {
 			var res = document.getElementById("res");
-			res.insertAdjacentHTML('beforeend', '<h3>Reviews (Please refresh to see your reviews)</h3><hr></hr>');            //var user = firebase.auth().currentUser;
+			res.insertAdjacentHTML('beforeend', '<h3>Reviews (Please refresh to see your reviews)</h3><hr></hr>');          
 			var module_code = document.getElementById('mod_title').innerHTML.split(' ')[0];
 			const q = query(collection(db, "reviews"), where("module_code", "==", module_code));
 			const querySnapshot = await getDocs(q);
@@ -257,8 +257,11 @@ export default {
 				res.insertAdjacentHTML('beforeend', doc.data().review);
 				res.insertAdjacentHTML('beforeend', '<br></br>');
 				
+				res.insertAdjacentHTML('beforeend','</tbody></table>');
+				
 			});
 			res.insertAdjacentHTML('beforeend', '<br></br>');
+			
 
 
         },
