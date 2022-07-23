@@ -15,7 +15,7 @@
                 <span class="header-tab"><router-link to="/login" v-if="!isLoggedIn"><a>Login/Register</a></router-link></span>
                 <button class="signOutButton" @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
             </div>
-            <h4 class = 'welcome' v-if="!isLoggedIn">Welcome to nusPlan! PLease Login/Register to start the journey with us.</h4>
+            <h4 class = 'welcome' v-if="!isLoggedIn">Welcome to nusPlan! Please Login/Register to start the journey with us.</h4>
         </nav>
     </div>
 </template>
