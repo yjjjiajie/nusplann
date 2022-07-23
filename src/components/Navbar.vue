@@ -10,7 +10,6 @@
             <!-- Show tabs when user is logged in -->
             
             <div class="header-tabs">
-                <span class="header-tab"><router-link to="/acadplan"><a>Academic Planner</a></router-link></span>
                 <span class="header-tab"><router-link to="/todo"><a>Pending To-Dos</a></router-link></span>            
                 <span class="header-tab"><router-link to="/moduleinfo"><a>Module Information</a></router-link></span>
                 <span class="header-tab"><router-link to="/login" v-if="!isLoggedIn"><a>Login/Register</a></router-link></span>
